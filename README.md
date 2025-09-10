@@ -1,5 +1,7 @@
 # 📘 Math Made Easy
 
+_"To learn math, do math!"_
+
 This is my website that supports my YouTube channel with **math tutoring and lessons**.  
 I cover material for **Grades 9–12** and also provide extra support for students preparing for the **Grade 12 entrance exam**.
 
