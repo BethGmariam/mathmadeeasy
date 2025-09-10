@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MathMadeEasy</title>
+
+    <!-- SEO -->
+    <meta
+      name="description"
+      content="MathMadeEasy helps high school students master algebra, geometry, calculus & more with step-by-step tutorials. Join 38,100+ students learning math in a fun, clear way."
+    />
+    <link rel="canonical" href="https://yourdomain.com/" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph -->
+    <meta
+      property="og:title"
+      content="MathMadeEasy - Learn Math the Easy Way"
+    />
+    <meta
+      property="og:description"
+      content="Join 38,100+ students learning math with fun, clear tutorials. Algebra, Geometry, Calculus & more."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://yourdomain.com/logo.jpg" />
+    <meta property="og:image:alt" content="MathMadeEasy logo" />
+    <meta property="og:url" content="https://yourdomain.com" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@MathMadeEasyBetty" />
+    <meta
+      name="twitter:title"
+      content="MathMadeEasy - Learn Math the Easy Way"
+    />
+    <meta
+      name="twitter:description"
+      content="Join 38,100+ students learning math with fun, clear tutorials."
+    />
+    <meta name="twitter:image" content="https://yourdomain.com/logo.jpg" />
+
+    <!-- Favicon & Theme -->
+    <link rel="icon" href="logo.jpg" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#004aad" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "MathMadeEasy",
+    "url": "https://yourdomain.com",
+    "logo": "https://yourdomain.com/logo.jpg",
+    "sameAs": [
+      "https://www.youtube.com/@MathMadeEasyBetty"
+    ],
+    "foundingDate": "2021",
+    "description": "MathMadeEasy helps high school students master algebra, geometry, calculus & more with step-by-step tutorials.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "US"
+    }
+  }
+  </script>
+
+  <!-- Language targeting -->
+  <link rel="alternate" href="https://yourdomain.com/" hreflang="en-us" />
+  <link rel="alternate" href="https://yourdomain.com/" hreflang="en-et" />
+</head>
+
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: "Roboto", sans-serif;
+        background: #f9fafc;
+        color: #222;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      /* Skip link */
+      .skip-link {
+        position: absolute;
+        left: -999px;
+        top: auto;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      }
+      .skip-link:focus {
+        left: 10px;
+        top: 10px;
+        background: #004aad;
+        color: #fff;
+        padding: 8px 12px;
+        z-index: 1001;
+        border-radius: 6px;
+      }
+
+      /* Header */
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #004aad;
+        padding: 10px 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+      header img.logo {
+        height: 50px;
+        object-fit: contain;
+      }
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 25px;
+      }
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+        padding: 8px 12px;
+        border-radius: 6px;
+        transition: background-color 0.3s ease;
+      }
+      nav ul li a:hover,
+      nav ul li a.active {
+        background-color: #28a745;
+      }
+
+      /* Sections */
+      main {
+        flex: 1;
+      }
+      main section {
+        display: none;
+        padding: 40px 20px;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      main section.active {
+        display: block;
+      }
+
+      h1,
+      h2 {
+        font-family: "Fredoka", cursive;
+        color: #004aad;
+      }
+
+      /* Hero */
+      .hero {
+        text-align: center;
+        padding: 80px 20px;
+        background: linear-gradient(135deg, #004aad, #1e90ff);
+        color: white;
+        border-radius: 12px;
+        margin-bottom: 40px;
+      }
+
+      .hero h1 {
+        color: #ffffff;
+      }
+
+      .hero p {
+        color: #ffffff;
+      }
+
+      .hero-tagline {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: #ffd700;
+        margin-top: 15px;
+      }
+
+      .button {
+        background-color: #28a745;
+        color: white;
+        font-weight: 700;
+        padding: 15px 30px;
+        font-size: 1.1rem;
+        border-radius: 10px;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 20px;
+        box-shadow: 0 5px 10px rgba(40, 167, 69, 0.4);
+      }
+      .button:hover {
+        background-color: #218838;
+      }
+
+      .button img {
+        height: 20px;
+        vertical-align: middle;
+        margin-right: 8px;
+      }
+
+      /* Highlights layout */
+      .highlights {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin: 40px auto; /* even spacing top & bottom */
+        justify-content: center;
+        max-width: 1000px; /* keeps them aligned nicely */
+      }
+
+      .highlight {
+        background: white;
+        padding: 20px;
+        border-radius: 12px;
+        flex: 0 1 auto;
+        text-align: center;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        line-height: 1.6;
+        font-size: 1rem;
+        display: inline-block;
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* smooth motion */
+      }
+
+      .highlight:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(40, 167, 69, 0.25); /* subtle green glow */
+      }
+
+      /* Mobile fix */
+      @media (max-width: 640px) {
+        .highlights {
+          flex-direction: column;
+          align-items: center;
+        }
+        .highlight {
+          width: auto; /* shrink to text */
+          max-width: 100%; /* but not wider than screen */
+          padding: 14px 18px; /* slightly tighter on mobile */
+          font-size: 1.05rem;
+        }
+      }
+
+      /* Videos */
+      .video-section {
+        margin-top: 60px; /* clear space below highlights */
+      }
+
+      .videos-list {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 20px;
+      }
+      .video-card {
+        background: white;
+        border-radius: 12px;
+        width: 280px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        text-align: left;
+        transition: transform 0.2s ease;
+      }
+      .video-card:hover {
+        transform: translateY(-5px);
+      }
+      .video-card img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        display: block;
+      }
+      .video-card p {
+        padding: 12px;
+        font-weight: 600;
+        margin: 0;
+      }
+
+      /* Testimonials */
+      .testimonials {
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
+      }
+      .testimonial {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        text-align: left;
+      }
+      .testimonial strong {
+        color: #004aad;
+      }
+
+      /* FAQ */
+      .faq {
+        margin-top: 40px;
+      }
+      .faq-item {
+        margin-bottom: 15px;
+      }
+      .faq-item h3 {
+        margin: 0;
+        color: #004aad;
+      }
+
+      /* Contact */
+      #contact {
+        text-align: center;
+      }
+      #contact form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        max-width: 500px;
+        margin: 20px auto;
+      }
+      #contact input,
+      #contact textarea {
+        padding: 12px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        width: 100%;
+      }
+      #contact button {
+        background-color: #004aad;
+        color: white;
+        font-weight: bold;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      #contact button:hover {
+        background-color: #003580;
+      }
+      #form-status {
+        margin-top: 15px;
+        font-weight: bold;
+      }
+      #form-status.success {
+        color: #28a745;
+      }
+      #form-status.error {
+        color: #ff3c38;
+      }
+
+      /* Footer */
+      footer {
+        text-align: center;
+        background: #004aad;
+        color: white;
+        padding: 20px;
+        margin-top: auto;
+      }
+      footer a {
+        color: white;
+        font-weight: bold;
+        text-decoration: none;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        padding: 4px 8px;
+        border-radius: 4px;
+      }
+
+      footer a:hover {
+        background-color: #28a745; /* same green hover as nav */
+        color: white;
+      }
+
+      @media (max-width: 640px) {
+        .highlights {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Skip link -->
+    <a class="skip-link" href="#maincontent">Skip to content</a>
+
+    <header>
+      <a href="#" onclick="showSection('home', event); return false;">
+        <img src="logo.jpg" alt="MathMadeEasy Logo" class="logo" />
+      </a>
+      <nav>
+        <ul>
+          <li>
+            <a
+              class="nav-link active"
+              aria-current="page"
+              onclick="showSection('home', event)"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a class="nav-link" onclick="showSection('about', event)"
+              >About Me</a
+            >
+          </li>
+          <li>
+            <a class="nav-link" onclick="showSection('contact', event)"
+              >Contact</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="maincontent">
+      <!-- HOME -->
+      <section id="home" class="active">
+        <div class="hero">
+          <h1>Welcome to MathMadeEasy</h1>
+          <p>🎉 Join 38,100+ students learning math step by step!</p>
+          <a
+            href="https://www.youtube.com/@MathMadeEasyBetty"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="button"
+            aria-label="Visit MathMadeEasy YouTube Channel"
+          >
+            <img
+              src="https://www.gstatic.com/youtube/img/branding/youtubelogo/svg/youtubelogo.svg"
+              alt="YouTube Logo"
+            />
+            Visit My YouTube Channel
+          </a>
+          <p class="hero-tagline">🔑 Unlock your confidence in math</p>
+        </div>
+
+        <div class="highlights">
+          <div class="highlight">🎯 Past Entrance Exam Questions Solved</div>
+          <div class="highlight">📝 More than 100s of Quizzes</div>
+          <div class="highlight">🔢 Step-by-Step Explanations</div>
+          <div class="highlight">
+            📚 Algebra, Geometry, Probability, Calculus
+          </div>
+        </div>
+
+        <h2 style="margin-top: 50px; text-align: center">Popular Playlists</h2>
+        <div class="videos-list">
+          <div class="video-card">
+            <a
+              href="https://www.youtube.com/playlist?list=PLCqaz5YaSxqKg3MsMG3HFHkTpUju-P2E_"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="https://img.youtube.com/vi/2kfwq9XvKR0/hqdefault.jpg"
+                alt="Algebra Basics Playlist Thumbnail"
+                loading="lazy"
+              />
+              <p>Algebra Basics Playlist</p>
+            </a>
+          </div>
+          <div class="video-card">
+            <a
+              href="https://www.youtube.com/playlist?list=PLCqaz5YaSxqLMaahyWLmdO-RRa1oOZYce"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="https://img.youtube.com/vi/h4wrwVStZlI/hqdefault.jpg"
+                alt="Calculus Series Playlist Thumbnail"
+                loading="lazy"
+              />
+              <p>Calculus Series Playlist</p>
+            </a>
+          </div>
+          <div class="video-card">
+            <a
+              href="https://www.youtube.com/playlist?list=PLCqaz5YaSxqLmWPSIOs0sASBZN_QjHOoB"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="https://img.youtube.com/vi/NGP4vv5v-go/hqdefault.jpg"
+                alt="Probability Playlist Thumbnail"
+                loading="lazy"
+              />
+              <p>Probability Playlist</p>
+            </a>
+          </div>
+          <div class="video-card">
+            <a
+              href="https://www.youtube.com/playlist?list=PLCqaz5YaSxqLbU2nGJseZO88gtkPZqV9f"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="https://img.youtube.com/vi/Y5M5s8ko9ws/hqdefault.jpg"
+                alt="Statistics Playlist Thumbnail"
+                loading="lazy"
+              />
+              <p>Statistics Playlist</p>
+            </a>
+          </div>
+          <div class="video-card">
+            <a
+              href="https://www.youtube.com/playlist?list=PLCqaz5YaSxqKg3MsMG3HFHkTpUju-P2E_"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="https://img.youtube.com/vi/pwnVtqvq_uo/hqdefault.jpg"
+                alt="Past Entrance Exam Questions Solved Playlist Thumbnail"
+                loading="lazy"
+              />
+              <p>
+                Past Entrance Exam Questions — 30+ came directly from the 2017
+                E.C. / 2025 G.C. exam!
+              </p>
+            </a>
+          </div>
+          <div class="video-card">
+            <a
+              href="https://www.youtube.com/playlist?list=PLCqaz5YaSxqIhachMCL1exzkDJPIeRuCJ"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="https://img.youtube.com/vi/C9tp5VeZrF4/hqdefault.jpg"
+                alt="Matrix and Determinant Playlist Thumbnail"
+                loading="lazy"
+              />
+              <p>Matrix and Determinant Playlist</p>
+            </a>
+          </div>
+        </div>
+
+        <!-- Testimonials -->
+        <div class="testimonials">
+          <h2>What Students Say</h2>
+          <div class="testimonial">
+            <p>
+              "You're not just a maths teacher—you’re a maths magician! I used
+              to fear math like it was a horror movie, but your videos turned it
+              into a comedy show! You’re the reason my calculator is finally
+              smiling 😄. Thank you for making numbers feel like friends!"
+            </p>
+            <p><strong>– MierafTesfaye, Grade 10</strong></p>
+          </div>
+          <div class="testimonial">
+            <p>
+              “I used to watch your videos back when I was in 10th grade — I
+              think the polynomial function videos — and they really helped me
+              understand math. I remember my mom tried her best to help me score
+              high in maths and English, but none of her trials worked. I used
+              to hate maths back then. But you showed me the way to master it —
+              thanks!! Now I'm a computer science major at Addis Ababa
+              University. God bless you and your family. My pure hearted Betty,
+              keep it up!"
+            </p>
+            <p><strong>– Harryblue, Grade 12</strong></p>
+          </div>
+          <div class="testimonial">
+            <p>
+              "I met this teacher in grade 10, and your lectures built my maths
+              foundation. Your simple hacks, shortcuts and tricks pushed me to
+              pursue university. Teachers like you are rare—please start a
+              university course too. Thank you, legend!"
+            </p>
+            <p><strong>– YaredTilahun, Grade 12</strong></p>
+          </div>
+        </div>
+
+        <!-- FAQ -->
+
+
+        <div class="faq">
+          <h2>❓ Frequently Asked Questions</h2>
+          <div class="faq-item">
+            <h3>Are your lessons free?</h3>
+            <p>✅ Yes! All my lessons are 100% free on YouTube.</p>
+          </div>
+          <div class="faq-item">
+            <h3>How often do you upload videos?</h3>
+            <p>
+              🎥 I upload regularly, focusing on University Entrance Exam
+              topics.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about">
+        <h2>About Me</h2>
+        <p>
+          Hi there! I'm Betty, the creator behind
+          <strong>MathMadeEasyBetty</strong>. My mission is simple: to make math
+          clear, accessible, and even enjoyable for high school students. I
+          break down tough concepts into easy-to-follow steps so you can build a
+          strong foundation and feel confident in class and on exams.
+        </p>
+        <p>
+          I hold a Bachelor's degree in <strong>Electrical Engineering</strong>,
+          which gives me a deep understanding of how math is applied in the real
+          world. From circuits to systems, I’ve seen firsthand how algebra,
+          calculus, and statistics power technology. That’s why I focus not just
+          on solving problems, but on showing how math connects to everyday life
+          and future careers.
+        </p>
+        <p>
+          Over the years, I’ve guided thousands of students through Algebra,
+          Geometry, Calculus, and beyond. Whether you’re preparing for a test or
+          just need extra support, you’ll find lessons designed to help you
+          succeed—one problem at a time.
+        </p>
+        <a
+          href="https://www.youtube.com/@MathMadeEasyBetty"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="button"
+        >
+          🎥 Watch My Lessons
+        </a>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact">
+        <h2>Contact Me</h2>
+        <p>
+          If you have questions or feedback, fill out the form below—I’d love to hear
+          from you!
+        </p>
+        <form
+          action="https://formspree.io/f/mjkbjeqz"
+          method="POST"
+          id="contact-form"
+        >
+          <label for="name">Your Name:</label>
+          <input type="text" name="name" id="name" required />
+
+          <label for="email">Your Email:</label>
+          <input type="email" name="_replyto" id="email" required />
+
+          <label for="message">Message:</label>
+          <textarea name="message" id="message" rows="5" required></textarea>
+
+          <!-- Honeypot -->
+          <input
+            type="text"
+            name="_gotcha"
+            style="display: none"
+            aria-hidden="true"
+          />
+
+          <button type="submit">Send</button>
+          <p id="form-status"></p>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        © 2021–2025 MathMadeEasy. All rights reserved. |
+        <a
+          href="https://www.youtube.com/@MathMadeEasyBetty"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Visit my YouTube Channel
+        </a>
+      </p>
+    </footer>
+
+    <script>
+      function showSection(sectionId, event) {
+        if (event) event.preventDefault();
+        document.querySelectorAll("main section").forEach((sec) => {
+          sec.classList.remove("active");
+        });
+        document.getElementById(sectionId).classList.add("active");
+        document
+          .querySelectorAll("nav a")
+          .forEach((link) => link.classList.remove("active"));
+        const clickedLink = event?.target;
+        if (clickedLink) clickedLink.classList.add("active");
+      }
+
+      // Formspree AJAX
+      const form = document.getElementById("contact-form");
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        const status = document.getElementById("form-status");
+        const data = new FormData(form);
+        try {
+          const response = await fetch(form.action, {
+            method: form.method,
+            body: data,
+            headers: { Accept: "application/json" },
+          });
+          if (response.ok) {
+            status.textContent = "✅ Thanks for your message!";
+            status.className = "success";
+            form.reset();
+          } else {
+            status.textContent =
+              "❌ Oops! There was a problem. Please try again.";
+            status.className = "error";
+          }
+        } catch (err) {
+          status.textContent = "❌ Network error. Please try again.";
+          status.className = "error";
+        }
+      });
+    </script>
+  </body>
+</html>
