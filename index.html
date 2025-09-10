@@ -150,6 +150,21 @@
         background-color: #28a745;
       }
 
+      /* Mobile nav quick fix */
+header nav a {
+  font-size: 14px;
+  margin-left: 8px;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  header nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+
       /* Sections */
       main {
         flex: 1;
