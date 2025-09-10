@@ -143,8 +143,8 @@ nav ul li a {
   color: white;
   text-decoration: none;
   font-weight: 600;
-  font-size: 1rem;
-  padding: 6px 8px; /* slightly tighter padding */
+  font-size: 1.1rem;   /* larger for desktop */
+  padding: 6px 8px;
   border-radius: 6px;
   transition: background-color 0.3s ease;
   white-space: nowrap;
@@ -158,13 +158,14 @@ nav ul li a.active {
 /* Mobile adjustments */
 @media (max-width: 600px) {
   nav ul {
-    gap: 10px; /* even smaller gap on small screens */
+    gap: 10px; /* tighter spacing */
   }
   nav ul li a {
-    font-size: 0.9rem;
+    font-size: 1rem;   /* slightly smaller on mobile */
     padding: 5px 6px;
   }
 }
+
 
 
 
