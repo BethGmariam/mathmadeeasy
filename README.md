@@ -12,4 +12,5 @@ I cover material for **Grades 9–12** and also provide extra support for studen
 
 ## 🎥 My YouTube Channel
 
-[![YouTube Channel](https://img.shields.io/badge/YouTube-MathMadeEasyBetty-red?style=for-the-badge&logo=youtube)](https://www.youtube.com/@MathMadeEasyBetty)
+[![YouTube Channel](https://img.shields.io/badge/YouTube-MathMadeEasy-red?style=for-the-badge&logo=youtube)](https://www.youtube.com/@MathMadeEasyBetty)  
+👉 **Subscribe for free math lessons and exam prep! 📚**
