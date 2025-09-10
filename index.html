@@ -117,7 +117,7 @@
 header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; /* logo left, nav right */
   background-color: #004aad;
   padding: 10px 20px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
@@ -136,7 +136,7 @@ nav ul {
   margin: 0;
   padding: 0;
   display: flex;
-  gap: 25px;
+  gap: 25px; /* normal spacing on desktop */
 }
 
 nav ul li a {
@@ -154,27 +154,19 @@ nav ul li a.active {
   background-color: #28a745;
 }
 
-/* Mobile nav adjustments */
+/* Mobile fix: shrink spacing so links fit on right */
 @media (max-width: 600px) {
-  header {
-    flex-direction: column;   /* stack logo + nav vertically */
-    align-items: center;      /* center everything */
-  }
-
-  header img.logo {
-    height: 40px;             /* shrink logo */
-    margin-bottom: 8px;       /* add space between logo & nav */
-  }
-
   nav ul {
-    flex-wrap: wrap;          /* allow nav items to break to new line */
-    justify-content: center;  /* center them neatly */
-    gap: 12px;
+    gap: 12px; /* reduce spacing */
   }
 
   nav ul li a {
-    font-size: 14px;          /* smaller links */
-    white-space: nowrap;
+    font-size: 0.9rem; /* slightly smaller font */
+    padding: 6px 8px;  /* tighter padding */
+  }
+
+  header img.logo {
+    height: 42px; /* shrink logo slightly */
   }
 }
 
