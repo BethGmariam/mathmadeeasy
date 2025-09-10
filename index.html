@@ -117,9 +117,9 @@
 header {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* logo left, nav right */
+  justify-content: space-between;
   background-color: #004aad;
-  padding: 10px 20px;
+  padding: 10px 16px; /* added breathing room on both sides */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   position: sticky;
   top: 0;
@@ -136,17 +136,18 @@ nav ul {
   margin: 0;
   padding: 0;
   display: flex;
-  gap: 25px; /* normal spacing on desktop */
+  gap: 14px; /* reduced space between Home, About, Contact */
 }
 
 nav ul li a {
   color: white;
   text-decoration: none;
   font-weight: 600;
-  font-size: 1.1rem;
-  padding: 8px 12px;
+  font-size: 1rem;
+  padding: 6px 8px; /* slightly tighter padding */
   border-radius: 6px;
   transition: background-color 0.3s ease;
+  white-space: nowrap;
 }
 
 nav ul li a:hover,
@@ -154,19 +155,14 @@ nav ul li a.active {
   background-color: #28a745;
 }
 
-/* Mobile fix: shrink spacing so links fit on right */
+/* Mobile adjustments */
 @media (max-width: 600px) {
   nav ul {
-    gap: 12px; /* reduce spacing */
+    gap: 10px; /* even smaller gap on small screens */
   }
-
   nav ul li a {
-    font-size: 0.9rem; /* slightly smaller font */
-    padding: 6px 8px;  /* tighter padding */
-  }
-
-  header img.logo {
-    height: 42px; /* shrink logo slightly */
+    font-size: 0.9rem;
+    padding: 5px 6px;
   }
 }
 
