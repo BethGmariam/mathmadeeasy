@@ -449,27 +449,22 @@ nav ul li a.active {
         <img src="logo.jpg" alt="MathMadeEasy Logo" class="logo" />
       </a>
       <nav>
-        <ul>
-          <li>
-            <a
-              class="nav-link active"
-              aria-current="page"
-              onclick="showSection('home', event)"
-              >Home</a
-            >
-          </li>
-          <li>
-            <a class="nav-link" onclick="showSection('about', event)"
-              >About Me</a
-            >
-          </li>
-          <li>
-            <a class="nav-link" onclick="showSection('contact', event)"
-              >Contact</a
-            >
-          </li>
-        </ul>
-      </nav>
+  <ul>
+    <li>
+      <a class="nav-link active" onclick="showSection('home', event)">Home</a>
+    </li>
+    <li>
+      <a class="nav-link" onclick="showSection('about', event)">About</a>
+    </li>
+    <li>
+<a class="nav-link" onclick="showSection('exam', event)">Exam</a>
+    </li>
+    <li>
+      <a class="nav-link" onclick="showSection('contact', event)">Contact</a>
+    </li>
+  </ul>
+</nav>
+
     </header>
 
     <main id="maincontent">
@@ -684,6 +679,74 @@ nav ul li a.active {
         </a>
       </section>
 
+<!-- EXAM -->
+<section id="exam" style="max-width: 900px; margin: 40px auto; padding: 30px;">
+  <div style="background: #f9fbff; border: 2px solid #004aad; border-radius: 12px; padding: 25px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+    
+    <h2 style="text-align:center; color:#004aad; margin-bottom: 10px;">
+      📝 Practice Exam
+    </h2>
+
+    <!-- Badge -->
+    <div style="text-align:center; margin-bottom: 20px;">
+      <span style="display:inline-block; background:#004aad; color:white; font-weight:bold; font-size:0.95rem; padding:6px 14px; border-radius:20px; box-shadow:0 2px 6px rgba(0,0,0,0.15);">
+        🔢 60 Questions • Real Past Exam
+      </span>
+    </div>
+
+    <!-- Time Suggestion -->
+    <div style="text-align:center; margin: 15px 0;">
+      <span style="display:inline-block; background:#ffc107; color:#000; font-weight:bold; font-size:0.95rem; padding:6px 14px; border-radius:20px; box-shadow:0 2px 6px rgba(0,0,0,0.15);">
+        ⏱ Recommended time: 3 hours (180 minutes)
+      </span>
+    </div>
+    
+    <p style="font-size:1.1rem; line-height:1.6; text-align:center; margin-bottom: 20px;">
+      Practice the <strong>2017 E.C. / 2025 G.C. Social Science Mathematics Exam</strong> right here!  
+      Answer all <strong>60 multiple-choice questions</strong> and see how well you score.  
+      <span style="color:#28a745; font-weight:bold;">You will see your score immediately after submission.</span>  
+      A great way to test your preparation before the real exam!
+    </p>
+
+    <!-- Start Exam Button -->
+    <div style="text-align:center; margin: 25px 0;">
+      <a href="#exam-form" 
+         onclick="startExam(); return false;"
+         style="display:inline-block; background:#28a745; color:white; font-weight:bold; font-size:1.1rem; padding:12px 24px; border-radius:8px; text-decoration:none; box-shadow:0 4px 10px rgba(0,0,0,0.2); transition:0.3s;">
+        🚀 Start Exam
+      </a>
+    </div>
+
+    <!-- Countdown Timer (hidden until exam starts) -->
+    <div id="exam-timer" style="display:none; text-align:center; font-size:1.2rem; font-weight:bold; color:#d9534f; margin:20px 0;">
+      ⏳ Time left: 3:00:00
+    </div>
+
+  <p style="margin-top:10px; font-weight:bold; color:#004aad; text-align:center; background:#eaf3ff; padding:10px; border-radius:6px;">
+  ⏱️ You have <strong>3 hours</strong> to complete this practice exam.  
+  Your answers and score will be shown immediately after submission.  
+  Stay focused and do your best — just like the real exam!
+</p>
+
+    
+    <!-- Google Form Embed (hidden by default) -->
+    <div id="exam-container" style="display:none; margin-top:20px;">
+      <iframe 
+        id="exam-form"
+        src="https://forms.gle/Frv8eTW79B6KcqAM6" 
+        width="100%" 
+        style="min-height:1200px; border-radius: 8px; background: white;" 
+        frameborder="0" 
+        marginheight="0" 
+        marginwidth="0"
+        title="Practice Exam">
+      </iframe>
+    </div>
+
+  </div>
+</section>
+
+
       <!-- CONTACT -->
       <section id="contact">
         <h2>Contact Me</h2>
@@ -772,6 +835,56 @@ nav ul li a.active {
           status.className = "error";
         }
       });
+
+      // Exam block script
+  let examStarted = false;
+  let timerInterval;
+
+  function startExam() {
+    if (!examStarted) {
+      document.getElementById("exam-container").style.display = "block";
+      examStarted = true;
+
+      // 3 hours = 10800 seconds
+      let timeLeft = 10800; 
+      const timerDisplay = document.createElement("div");
+      timerDisplay.id = "exam-timer";
+      timerDisplay.style.textAlign = "center";
+      timerDisplay.style.fontWeight = "bold";
+      timerDisplay.style.fontSize = "1.2rem";
+      timerDisplay.style.margin = "15px 0";
+      timerDisplay.style.color = "#004aad"; // default blue
+      document.getElementById("exam-container").prepend(timerDisplay);
+
+      function updateTimer() {
+        let hours = Math.floor(timeLeft / 3600);
+        let minutes = Math.floor((timeLeft % 3600) / 60);
+        let seconds = timeLeft % 60;
+
+        timerDisplay.textContent = `⏳ Time left: ${hours}h ${minutes}m ${seconds}s`;
+
+        // Change color based on time left
+        if (timeLeft <= 0) {
+          clearInterval(timerInterval);
+          timerDisplay.textContent = "⏰ Time is up!";
+          timerDisplay.style.color = "#d32f2f"; // red
+        } else if (timeLeft <= 600) {
+          timerDisplay.style.color = "#ff9800"; // last 10 mins → orange/yellow
+        } else {
+          timerDisplay.style.color = "#004aad"; // normal → blue
+        }
+
+        timeLeft--;
+      }
+
+      updateTimer();
+      timerInterval = setInterval(updateTimer, 1000);
+    }
+  }
+
+
+
+
     </script>
   </body>
 </html>
