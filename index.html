@@ -809,6 +809,8 @@ body.exam-active {
   action="https://formspree.io/f/xpwjnneq"
   method="POST"
   id="contact-form"
+  enctype="multipart/form-data"
+
 >
   <label for="name">Your Name:</label>
   <input type="text" name="name" id="name" required />
@@ -818,6 +820,9 @@ body.exam-active {
 
   <label for="message">Message:</label>
   <textarea name="message" id="message" rows="5" required></textarea>
+  <label for="attachment">Attach screenshots or files if needed:</label>
+<input type="file" name="attachment" id="attachment" accept=".jpg,.jpeg,.png,.pdf,.doc,.docx" />
+
 
   <!-- Honeypot -->
   <input
@@ -875,7 +880,7 @@ body.exam-active {
             headers: { Accept: "application/json" },
           });
           if (response.ok) {
-            status.textContent = "✅ Thanks for your message! I check messages regularly and will reply within 24 hours.";
+            status.textContent = "✅ Thanks for your message! I’ll review your question or attachment and reply within 24 hours.";
             status.className = "success";
             form.reset();
           } else {
