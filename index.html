@@ -408,25 +408,18 @@ nav ul li a.active {
       }
 
 
-      /* Sticky Exam Timer */
+/* Exam Timer (scrolls with page) */
 #exam-timer {
-  position: sticky;
-  top: 70px;
   background: #fff;
   padding: 8px 12px;
   border-radius: 6px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   z-index: 100;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin: 20px 0;
 }
-/* Disable page scrolling when exam is active */
-body.exam-active {
-  overflow: hidden;
-}
-#exam-container {
-  max-height: 100vh;   /* fit screen height */
-  overflow-y: auto;    /* allow internal scroll */
-}
-
 
 
 
@@ -774,10 +767,6 @@ body.exam-active {
 <div id="exam-timer" style="display:none; text-align:center; font-size:1.2rem; font-weight:bold; color:#d9534f; margin:20px 0;"></div>
 
 
-  <p style="margin-top:10px; font-weight:bold; color:#004aad; text-align:center; background:#eaf3ff; padding:10px; border-radius:6px;">
-  <strong>Stay focused  
-   and do your best — just like the real exam!</strong> 
-</p>
 
     
     <!-- Google Form Embed (hidden by default) -->
@@ -901,56 +890,44 @@ let examStarted = false;
 let timerInterval;
 
 function startExam() {
-  if (!examStarted) {
-    document.getElementById("exam-container").style.display = "block";
-    examStarted = true;
+  if (examStarted) return;
 
-    // ✅ Disable main page scroll
-    document.body.classList.add("exam-active");
+  examStarted = true;
 
-    // 3 hours = 10800 seconds
-    let timeLeft = 10800; 
-    const timerDisplay = document.getElementById("exam-timer");
-    timerDisplay.style.display = "block";
-    timerDisplay.style.textAlign = "center";
-    timerDisplay.style.fontWeight = "bold";
-    timerDisplay.style.fontSize = "1.2rem";
-    timerDisplay.style.margin = "15px 0";
-    timerDisplay.style.color = "#004aad"; // default blue
+  // Show exam form and timer
+  document.getElementById("exam-container").style.display = "block";
+  const timerDisplay = document.getElementById("exam-timer");
+  timerDisplay.style.display = "block";
 
-    function updateTimer() {
-      let hours = Math.floor(timeLeft / 3600);
-      let minutes = Math.floor((timeLeft % 3600) / 60);
-      let seconds = timeLeft % 60;
+  // 3 hours = 10800 seconds
+  let timeLeft = 10800;
 
-      timerDisplay.textContent = `⏳ Time left: ${hours}h ${minutes}m ${seconds}s`;
+  function updateTimer() {
+    let hours = Math.floor(timeLeft / 3600);
+    let minutes = Math.floor((timeLeft % 3600) / 60);
+    let seconds = timeLeft % 60;
 
-      // Change color based on time left
-      if (timeLeft <= 0) {
-        clearInterval(timerInterval);
-        timerDisplay.textContent = "⏰ Time is up!";
-        timerDisplay.style.color = "#d32f2f"; // red
+    timerDisplay.textContent = `⏳ Time left: ${hours}h ${minutes}m ${seconds}s`;
 
-        // ✅ Re-enable main page scroll when exam ends
-        document.body.classList.remove("exam-active");
-      } else if (timeLeft <= 600) {
-        timerDisplay.style.color = "#ff9800"; // last 10 mins → orange/yellow
-      } else {
-        timerDisplay.style.color = "#004aad"; // normal → blue
-      }
-
-      timeLeft--;
+    // Color changes
+    if (timeLeft <= 0) {
+      clearInterval(timerInterval);
+      timerDisplay.textContent = "⏰ Time is up!";
+      timerDisplay.style.color = "#d32f2f"; // red
+    } else if (timeLeft <= 600) {
+      timerDisplay.style.color = "#ff9800"; // last 10 mins → orange
+    } else {
+      timerDisplay.style.color = "#004aad"; // normal → blue
     }
 
-    updateTimer();
-    timerInterval = setInterval(updateTimer, 1000);
-
-    // Auto-scroll to the exam form
-    document.getElementById("exam-form").scrollIntoView({ 
-      behavior: "smooth" 
-    });
+    timeLeft--;
   }
+
+  updateTimer();
+  timerInterval = setInterval(updateTimer, 1000);
 }
+
+
 
 
 
