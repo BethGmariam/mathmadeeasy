@@ -933,27 +933,33 @@ function startExam() {
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
 (function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/68c7ab4eebe9761929d3e4fb/1j55vaask';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
+  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  s1.async=true;
+  s1.src='https://embed.tawk.to/68c7ab4eebe9761929d3e4fb/1j55vaask';
+  s1.charset='UTF-8';
+  s1.setAttribute('crossorigin','*');
+  s0.parentNode.insertBefore(s1,s0);
 })();
 
-// This runs after the widget loads
+// Run after widget loads
 Tawk_API.onLoad = function(){
-    // Auto-fill fields so chat starts instantly
+    // Optional: auto-fill visitor info to bypass email/name
     Tawk_API.setAttributes({
-        name: 'Student',               // Optional: can be left generic
-        email: 'student@example.com'   // Placeholder email to bypass requirement
+        name: 'Student',
+        email: 'student@example.com'
     }, function(error){});
 
     // Automatically open chat (optional)
-    // Tawk_API.maximize();  // chat box to pop up immediately
+    Tawk_API.maximize();
+
+    // Send first message as agent (appears from you, not system)
+    Tawk_API.addEvent('agentMessage', {
+        message: "👋 Hi, it’s me Betty! Stuck on a math problem? Ask me here."
+    });
 };
 </script>
 <!--End of Tawk.to Script-->
+
 
 
   </body>
